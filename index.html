@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APK Download</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.card {
+    background: #1e293b;
+    padding: 25px 20px;
+    margin-top: 25px;
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    color: #cbd5e1;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.youtube {
+    background: #ff0000;
+    color: white;
+}
+
+.telegram {
+    background: #229ed9;
+    color: white;
+}
+
+.download {
+    background: #22c55e;
+    color: white;
+}
+
+button:disabled {
+    background: #64748b;
+    cursor: not-allowed;
+}
+
+.timer {
+    font-size: 20px;
+    margin-top: 18px;
+    color: #facc15;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚀 APK Download</h1>
+<p>Complete the tasks to unlock your download.</p>
+
+<!-- YOUTUBE TASK -->
+<div class="card" id="youtubeCard">
+
+<h2>1️⃣ YouTube Subscribe</h2>
+
+<p>Subscribe to our YouTube channel.</p>
+
+<button class="youtube" onclick="openYoutube()">
+🔴 Subscribe on YouTube
+</button>
+
+<div id="youtubeTimer" class="timer hidden">
+Please wait <span id="ytCount">5</span> seconds...
+</div>
+
+<button id="youtubeNext"
+class="download hidden"
+onclick="showTelegram()">
+Next ➜
+</button>
+
+</div>
+
+
+<!-- TELEGRAM TASK -->
+<div class="card hidden" id="telegramCard">
+
+<h2>2️⃣ Join Telegram</h2>
+
+<p>Join our Telegram channel.</p>
+
+<button class="telegram" onclick="openTelegram()">
+✈️ Join Telegram
+</button>
+
+<div id="telegramTimer" class="timer hidden">
+Please wait <span id="tgCount">5</span> seconds...
+</div>
+
+<button id="telegramNext"
+class="download hidden"
+onclick="showDownload()">
+Continue ➜
+</button>
+
+</div>
+
+
+<!-- DOWNLOAD -->
+<div class="card hidden" id="downloadCard">
+
+<h2>🔐 Download APK</h2>
+
+<p>Enter the 4-digit password.</p>
+
+<input
+type="password"
+id="password"
+maxlength="4"
+inputmode="numeric"
+placeholder="Enter password">
+
+<button class="download" onclick="checkPassword()">
+🔓 Unlock Download
+</button>
+
+<p id="error" style="color:#f87171;"></p>
+
+<a id="apkLink" href="#" class="hidden">
+<button class="download">
+📥 Download APK
+</button>
+</a>
+
+</div>
+
+</div>
+
+
+<script>
+
+// ==============================
+// YOUR SETTINGS
+// ==============================
+
+const YOUTUBE_LINK =
+"https://youtube.com/@lordmodi.9?si=MZBEzMLslwPj_Sxj";
+
+const TELEGRAM_LINK =
+"https://t.me/lordmodi1920";
+
+// APK LINK BAAD MEIN ADD KARENGE
+const APK_LINK =
+"https://example.com/your-apk.apk";
+
+// PASSWORD
+const PASSWORD = "8188";
+
+
+// ==============================
+// YOUTUBE
+// ==============================
+
+let youtubeOpened = false;
+let youtubeTimerStarted = false;
+
+function openYoutube() {
+
+    youtubeOpened = true;
+
+    window.open(YOUTUBE_LINK, "_blank");
+
+    document.getElementById("youtubeTimer")
+    .classList.remove("hidden");
+}
+
+
+// YouTube se wapas aane par 5 second timer
+
+document.addEventListener("visibilitychange", function() {
+
+    if (
+        !document.hidden &&
+        youtubeOpened &&
+        !youtubeTimerStarted
+    ) {
+
+        youtubeTimerStarted = true;
+
+        startTimer(
+            "ytCount",
+            "youtubeNext",
+            5
+        );
+    }
+
+});
+
+
+// ==============================
+// TELEGRAM
+// ==============================
+
+let telegramOpened = false;
+let telegramTimerStarted = false;
+
+function showTelegram() {
+
+    document.getElementById("youtubeCard")
+    .classList.add("hidden");
+
+    document.getElementById("telegramCard")
+    .classList.remove("hidden");
+
+}
+
+
+function openTelegram() {
+
+    telegramOpened = true;
+
+    window.open(TELEGRAM_LINK, "_blank");
+
+    document.getElementById("telegramTimer")
+    .classList.remove("hidden");
+}
+
+
+// Telegram se wapas aane par 5 second timer
+
+document.addEventListener("visibilitychange", function() {
+
+    if (
+        !document.hidden &&
+        telegramOpened &&
+        !telegramTimerStarted
+    ) {
+
+        telegramTimerStarted = true;
+
+        startTimer(
+            "tgCount",
+            "telegramNext",
+            5
+        );
+    }
+
+});
+
+
+// ==============================
+// 5 SECOND TIMER
+// ==============================
+
+function startTimer(counterId, buttonId, seconds) {
+
+    let count = seconds;
+
+    const counter =
+        document.getElementById(counterId);
+
+    const button =
+        document.getElementById(buttonId);
+
+    counter.innerText = count;
+
+    const interval = setInterval(function() {
+
+        count--;
+
+        counter.innerText = count;
+
+        if (count <= 0) {
+
+            clearInterval(interval);
+
+            button.classList.remove("hidden");
+
+            counter.parentElement.innerHTML =
+                "✅ Task completed!";
+        }
+
+    }, 1000);
+}
+
+
+// ==============================
+// DOWNLOAD PAGE
+// ==============================
+
+function showDownload() {
+
+    document.getElementById("telegramCard")
+    .classList.add("hidden");
+
+    document.getElementById("downloadCard")
+    .classList.remove("hidden");
+
+}
+
+
+// ==============================
+// PASSWORD
+// ==============================
+
+function checkPassword() {
+
+    const entered =
+        document.getElementById("password").value;
+
+    const error =
+        document.getElementById("error");
+
+    if (entered === PASSWORD) {
+
+        error.innerText = "";
+
+        const link =
+            document.getElementById("apkLink");
+
+        link.href = APK_LINK;
+
+        link.classList.remove("hidden");
+
+    } else {
+
+        error.innerText =
+            "❌ Wrong password!";
+    }
+}
+
+</script>
+
+</body>
+  </html>
