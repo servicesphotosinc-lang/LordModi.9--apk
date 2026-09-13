@@ -3,428 +3,55 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>LordModi.9 - APK Download</title>
-
 <style>
-
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #111827, #1e3a8a);
-    color: white;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.container {
-    width: 100%;
-    max-width: 500px;
-    background: rgba(255,255,255,0.10);
-    padding: 25px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-h1 {
-    margin-top: 0;
-    font-size: 30px;
-}
-
-h2 {
-    margin-bottom: 10px;
-}
-
-p {
-    color: #e5e7eb;
-    line-height: 1.5;
-}
-
-.card {
-    background: rgba(0,0,0,0.25);
-    padding: 22px;
-    border-radius: 15px;
-    margin-top: 20px;
-}
-
-button {
-    width: 100%;
-    border: none;
-    padding: 15px;
-    margin-top: 12px;
-    border-radius: 10px;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.youtube {
-    background: #ff0000;
-    color: white;
-}
-
-.telegram {
-    background: #229ed9;
-    color: white;
-}
-
-.confirm {
-    background: #16a34a;
-    color: white;
-}
-
-.download {
-    background: #f59e0b;
-    color: black;
-}
-
-.hidden {
-    display: none !important;
-}
-
-.timer {
-    margin-top: 15px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-input {
-    width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    border: none;
-    font-size: 18px;
-    text-align: center;
-    margin-top: 15px;
-}
-
-#error {
-    color: #ff6b6b;
-    margin-top: 12px;
-    font-weight: bold;
-}
-
-.success {
-    color: #4ade80;
-    font-weight: bold;
-}
-
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#111827,#1e3a8a);color:white;min-height:100vh;display:flex;justify-content:center;align-items:center;padding:20px}.container{width:100%;max-width:500px;background:rgba(255,255,255,.1);padding:25px;border-radius:20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.4)}h1{margin-top:0;font-size:30px}p{color:#e5e7eb;line-height:1.5}.card{background:rgba(0,0,0,.25);padding:22px;border-radius:15px;margin-top:20px}button{width:100%;border:0;padding:15px;margin-top:12px;border-radius:10px;font-size:17px;font-weight:bold;cursor:pointer}.youtube{background:#f00;color:#fff}.telegram{background:#229ed9;color:#fff}.confirm{background:#16a34a;color:#fff}.download{background:#f59e0b;color:#000}.hidden{display:none!important}.timer{margin-top:15px;font-size:18px;font-weight:bold}input{width:100%;padding:14px;border-radius:10px;border:0;font-size:18px;text-align:center;margin-top:15px}#error{color:#ff6b6b;margin-top:12px;font-weight:bold}.success{color:#4ade80;font-weight:bold}
 </style>
 </head>
-
 <body>
-
 <div class="container">
-
 <h1>🔥 LordModi.9 🔥</h1>
-
 <p>Complete the tasks below to unlock the APK Download.</p>
 
-
-<!-- ================= YOUTUBE ================= -->
-
 <div id="youtubeCard" class="card">
-
-<h2>📺 Step 1</h2>
-
-<p>First, subscribe to our YouTube channel.</p>
-
-<button class="youtube" onclick="openYoutube()">
-SUBSCRIBE ON YOUTUBE
-</button>
-
-<button id="youtubeConfirm"
-class="confirm hidden"
-onclick="startYoutubeTimer()">
-I'VE SUBSCRIBED
-</button>
-
-<div id="youtubeTimer" class="timer hidden">
-Please wait <span id="ytCount">10</span> seconds...
+<h2>📺 Step 1</h2><p>First, subscribe to our YouTube channel.</p>
+<button class="youtube" onclick="openYoutube()">SUBSCRIBE ON YOUTUBE</button>
+<button id="youtubeConfirm" class="confirm hidden" onclick="startYoutubeTimer()">I'VE SUBSCRIBED</button>
+<div id="youtubeTimer" class="timer hidden">Please wait <span id="ytCount">10</span> seconds...</div>
+<button id="youtubeNext" class="confirm hidden" onclick="showTelegram()">CONTINUE</button>
 </div>
-
-<button id="youtubeNext"
-class="confirm hidden"
-onclick="showTelegram()">
-CONTINUE
-</button>
-
-</div>
-
-
-<!-- ================= TELEGRAM ================= -->
 
 <div id="telegramCard" class="card hidden">
-
-<h2>📢 Step 2</h2>
-
-<p>Join our Telegram channel.</p>
-
-<button class="telegram" onclick="openTelegram()">
-JOIN TELEGRAM
-</button>
-
-<button id="telegramConfirm"
-class="confirm hidden"
-onclick="startTelegramTimer()">
-I'VE JOINED
-</button>
-
-<div id="telegramTimer" class="timer hidden">
-Please wait <span id="tgCount">10</span> seconds...
+<h2>📢 Step 2</h2><p>Join our Telegram channel.</p>
+<button class="telegram" onclick="openTelegram()">JOIN TELEGRAM</button>
+<button id="telegramConfirm" class="confirm hidden" onclick="startTelegramTimer()">I'VE JOINED</button>
+<div id="telegramTimer" class="timer hidden">Please wait <span id="tgCount">10</span> seconds...</div>
+<button id="telegramNext" class="confirm hidden" onclick="showDownload()">CONTINUE</button>
 </div>
-
-<button id="telegramNext"
-class="confirm hidden"
-onclick="showDownload()">
-CONTINUE
-</button>
-
-</div>
-
-
-<!-- ================= DOWNLOAD ================= -->
 
 <div id="downloadCard" class="card hidden">
-
-<h2>🔐 Final Step</h2>
-
-<p>Enter the password to unlock your APK.</p>
-
-<input
-type="password"
-id="password"
-placeholder="Enter password"
-inputmode="numeric"
->
-
-<button class="download" onclick="checkPassword()">
-UNLOCK DOWNLOAD
-</button>
-
+<h2>🔐 Final Step</h2><p>Enter the password to unlock your APK.</p>
+<input type="password" id="password" placeholder="Enter password" inputmode="numeric">
+<button class="download" onclick="checkPassword()">UNLOCK DOWNLOAD</button>
 <div id="error"></div>
-
-<a
-id="apkLink"
-class="hidden"
-target="_blank"
-rel="noopener"
->
-<button class="download">
-⬇️ DOWNLOAD APK
-</button>
-</a>
-
+<a id="apkLink" class="hidden" target="_blank" rel="noopener"><button class="download">⬇️ DOWNLOAD APK</button></a>
 </div>
-
 </div>
-
 
 <script>
-
-// ==============================
-// LINKS
-// ==============================
-
-const YOUTUBE_LINK =
-"https://youtube.com/@lordmodi.9?si=I5zmzaRM_zhbytMB";
-
-const TELEGRAM_LINK =
-"https://t.me/lordmodi1920";
-
-const APK_LINK =
-"https://github.com/servicesphotosinc-lang/LordModi.9--apk/releases/download/V1.0/Carrom.Disc.Pool_19.4.0-New.apk";
-
-
-// ==============================
-// PASSWORD
-// ==============================
-
-const PASSWORD = "4555";
-
-
-// ==============================
-// YOUTUBE
-// ==============================
-
-let youtubeOpened = false;
-
-function openYoutube() {
-
-    youtubeOpened = true;
-
-    window.open(YOUTUBE_LINK, "_blank");
-
-    // Subscribe button dabane ke baad
-    // confirmation button dikhega
-
-    document
-    .getElementById("youtubeConfirm")
-    .classList.remove("hidden");
-}
-
-
-function startYoutubeTimer() {
-
-    document
-    .getElementById("youtubeConfirm")
-    .classList.add("hidden");
-
-    document
-    .getElementById("youtubeTimer")
-    .classList.remove("hidden");
-
-    startTimer(
-        "ytCount",
-        "youtubeNext",
-        10
-    );
-}
-
-
-// ==============================
-// TELEGRAM
-// ==============================
-
-let telegramOpened = false;
-
-function showTelegram() {
-
-    document
-    .getElementById("youtubeCard")
-    .classList.add("hidden");
-
-    document
-    .getElementById("telegramCard")
-    .classList.remove("hidden");
-}
-
-
-function openTelegram() {
-
-    telegramOpened = true;
-
-    window.open(TELEGRAM_LINK, "_blank");
-
-    // Join button ke baad confirmation
-    // button dikhega
-
-    document
-    .getElementById("telegramConfirm")
-    .classList.remove("hidden");
-}
-
-
-function startTelegramTimer() {
-
-    document
-    .getElementById("telegramConfirm")
-    .classList.add("hidden");
-
-    document
-    .getElementById("telegramTimer")
-    .classList.remove("hidden");
-
-    startTimer(
-        "tgCount",
-        "telegramNext",
-        10
-    );
-}
-
-
-// ==============================
-// TIMER
-// ==============================
-
-function startTimer(counterId, buttonId, seconds) {
-
-    let count = seconds;
-
-    const counter =
-        document.getElementById(counterId);
-
-    const button =
-        document.getElementById(buttonId);
-
-    counter.innerText = count;
-
-    const interval = setInterval(function() {
-
-        count--;
-
-        counter.innerText = count;
-
-        if (count <= 0) {
-
-            clearInterval(interval);
-
-            counter.parentElement.innerHTML =
-                '<span class="success">✅ Task completed!</span>';
-
-            button.classList.remove("hidden");
-        }
-
-    }, 1000);
-}
-
-
-// ==============================
-// DOWNLOAD PAGE
-// ==============================
-
-function showDownload() {
-
-    document
-    .getElementById("telegramCard")
-    .classList.add("hidden");
-
-    document
-    .getElementById("downloadCard")
-    .classList.remove("hidden");
-}
-
-
-// ==============================
-// PASSWORD
-// ==============================
-
-function checkPassword() {
-
-    const entered =
-        document.getElementById("password").value;
-
-    const error =
-        document.getElementById("error");
-
-    const link =
-        document.getElementById("apkLink");
-
-    if (entered === PASSWORD) {
-
-        error.innerText =
-            "✅ Password correct!";
-
-        link.href = APK_LINK;
-
-        link.classList.remove("hidden");
-
-    } else {
-
-        error.innerText =
-            "❌ Wrong password!";
-    }
-}
-
+const YOUTUBE_LINK="https://youtube.com/@lordmodi.9?si=I5zmzaRM_zhbytMB";
+const TELEGRAM_LINK="https://t.me/lordmodi1920";
+const APK_LINK="https://github.com/servicesphotosinc-lang/LordModi.9--apk/releases/download/V1.0/Carrom.Disc.Pool_19.4.0-New.apk";
+const PASSWORD="8188";
+
+function openYoutube(){window.open(YOUTUBE_LINK,"_blank");document.getElementById("youtubeConfirm").classList.remove("hidden")}
+function startYoutubeTimer(){document.getElementById("youtubeConfirm").classList.add("hidden");document.getElementById("youtubeTimer").classList.remove("hidden");startTimer("ytCount","youtubeNext",10)}
+function showTelegram(){document.getElementById("youtubeCard").classList.add("hidden");document.getElementById("telegramCard").classList.remove("hidden")}
+function openTelegram(){window.open(TELEGRAM_LINK,"_blank");document.getElementById("telegramConfirm").classList.remove("hidden")}
+function startTelegramTimer(){document.getElementById("telegramConfirm").classList.add("hidden");document.getElementById("telegramTimer").classList.remove("hidden");startTimer("tgCount","telegramNext",10)}
+function startTimer(counterId,buttonId,seconds){let count=seconds;const counter=document.getElementById(counterId),button=document.getElementById(buttonId);counter.innerText=count;const interval=setInterval(()=>{count--;counter.innerText=count;if(count<=0){clearInterval(interval);counter.parentElement.innerHTML='<span class="success">✅ Task completed!</span>';button.classList.remove("hidden")}},1000)}
+function showDownload(){document.getElementById("telegramCard").classList.add("hidden");document.getElementById("downloadCard").classList.remove("hidden")}
+function checkPassword(){const entered=document.getElementById("password").value,error=document.getElementById("error"),link=document.getElementById("apkLink");if(entered===PASSWORD){error.innerText="✅ Password correct!";link.href=APK_LINK;link.classList.remove("hidden")}else{error.innerText="❌ Wrong password!"}}
 </script>
-
 </body>
 </html>
